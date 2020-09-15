@@ -2,7 +2,7 @@ const CoinGecko = require("coingecko-api");
 const CoinGeckoClient = new CoinGecko();
 const axios = require("axios");
 
-const POLL_INTERVAL = 5000;
+const POLL_INTERVAL = 60000;
 
 const TOKENS = {
   SAKE: {
@@ -13,6 +13,7 @@ const TOKENS = {
   },
   OMG: {
     id: "omisego",
+    url: "omg-network",
   },
   UMA: {
     id: "uma",
@@ -33,12 +34,12 @@ const priceReveralBot = async (tokenData, tokenName) => {
   if (prevPrice && prevPrice < currentPrice) {
     axios
       .post(
-        "https://hooks.slack.com/services/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",
+        "https://hooks.slack.com/services/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",
         {
-          text: `${tokenName} +${
-            priceDif / prevPrice
-          }% See charts here: https://www.coingecko.com/en/coins/${
-            tokenData.id
+          text: `${tokenName} +${((priceDif / prevPrice) * 100).toFixed(
+            2
+          )}% See charts here: https://www.coingecko.com/en/coins/${
+            tokenData.url || tokenData.id
           }`,
           color: "#36a64f",
         }
