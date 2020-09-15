@@ -2,7 +2,7 @@ const CoinGecko = require("coingecko-api");
 const CoinGeckoClient = new CoinGecko();
 const axios = require("axios");
 
-const POLL_INTERVAL = 60000;
+const POLL_INTERVAL = 5000;
 
 const TOKENS = {
   SAKE: {
@@ -12,7 +12,7 @@ const TOKENS = {
     id: "sushi",
   },
   OMG: {
-    id: "omg-network",
+    id: "omisego",
   },
   UMA: {
     id: "uma",
