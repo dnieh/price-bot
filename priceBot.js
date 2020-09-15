@@ -63,16 +63,14 @@ const priceTrendBot = async (tokenData, tokenName) => {
           `https://hooks.slack.com/services/T01AC1Q7K2S/B01AV7ECTDJ/${process.env.SLACK_API_TOKEN}`,
           {
             text: `
-  *${tokenName}* +${((priceDif / prevPrice) * 100).toFixed(
+*${tokenName}* <https://www.coingecko.com/en/coins/${
+              tokenData.url || tokenData.id
+            }|CoinGecko> | <https://uniswap.info/token/${tokenAddress}|Uniswap> | <https://etherscan.io/token/${tokenAddress}|Etherscan>\n
++${((priceDif / prevPrice) * 100).toFixed(
               2
-            )}% (Now ${currentPrice})\n
-  Price has been flat or trending up for ${trendCount} minute${
+            )}% (Now ${currentPrice}) Price has been flat or trending up for ${trendCount} minute${
               trendCount > 1 ? "s" : ""
-            }.\n
-  <https://www.coingecko.com/en/coins/${
-    tokenData.url || tokenData.id
-  }|CoinGecko> | <https://uniswap.info/token/${tokenAddress}|Uniswap> | <https://etherscan.io/token/${tokenAddress}|Etherscan>
-  `,
+            }.`,
           }
         )
         .catch((e) => {
