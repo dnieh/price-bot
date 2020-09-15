@@ -34,7 +34,7 @@ const priceReveralBot = async (tokenData, tokenName) => {
   if (prevPrice && prevPrice < currentPrice) {
     axios
       .post(
-        "https://hooks.slack.com/services/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",
+        `https://hooks.slack.com/services/T01AC1Q7K2S/B01AV7ECTDJ/${process.env.SLACK_API_TOKEN}`,
         {
           text: `${tokenName} +${((priceDif / prevPrice) * 100).toFixed(
             2
