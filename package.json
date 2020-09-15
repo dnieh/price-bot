@@ -1,0 +1,12 @@
+{
+  "name": "price-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:dnieh/price-bot.git",
+  "author": "dnieh <danielnieh@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "coingecko-api": "^1.0.10"
+  }
+}
