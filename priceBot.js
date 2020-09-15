@@ -7,11 +7,15 @@ const POLL_INTERVAL = 60000;
 const TOKENS = {
   SAKE: {
     id: "sake-token",
-    price: null,
   },
   SUSHI: {
     id: "sushi",
-    price: null,
+  },
+  OMG: {
+    id: "omg-network",
+  },
+  UMA: {
+    id: "uma",
   },
 };
 
@@ -33,7 +37,9 @@ const priceReveralBot = async (tokenData, tokenName) => {
         {
           text: `${tokenName} +${
             priceDif / prevPrice
-          }% See charts here: https://www.coingecko.com/en/coins/sushi`,
+          }% See charts here: https://www.coingecko.com/en/coins/${
+            tokenData.id
+          }`,
           color: "#36a64f",
         }
       )
